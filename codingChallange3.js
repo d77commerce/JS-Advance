@@ -17,6 +17,6 @@ console.log(calcAge3(1977));
 const YearsToPention = (birthY,firstName)=>{
     let age = 2022-birthY;
     let pention = 65-age;
-    return `${firstName} retires  ${pention} years `;
+    return `${firstName} retires in  ${pention} years `;
 }
 console.log(YearsToPention(1977,'Petre'))
