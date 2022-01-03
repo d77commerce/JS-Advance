@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 function test(Oringe,Apple){
   return `Juce ${Oringe} origes and ${Apple} aplles.`
   }
