@@ -18,6 +18,36 @@ function tipsArray(){
     }
     console.log(testArray);
     console.log(testArray1);
+    testArray3 = [];
+    for (let i = 0; i < bills.length; i++) {
+        testArray3.push( bills[i]*0.20);
+        
+    }
+    for (let i = 0; i < testArray3.length; i++) {
+        console.log(testArray3[i]);
+    
+    }
+    for (let i = 0; i <testArray3.length; i++) {
+        if(testArray3[i] === 111)continue;
+        console.log(testArray3[i], typeof testArray3[i]);
+    }
+    for (let i = 0; i <testArray3.length; i++) {
+        if(testArray3[i] !== 111)continue;
+        console.log(testArray3[i], typeof testArray3[i]);
+    }
+    for (let i = 0; i <testArray3.length; i++) {
+        if(testArray3[i] === 111)break;
+        console.log(testArray3[i], typeof testArray3[i]);
+    }
+    for (let i = testArray1.length; i > 0; i--){
+        console.log(`${testArray1[i-1]} and minus ${i+i}`)      
+    }
 
+    for (let i = 0; i < testArray1.length; i++) {
+       console.log(`============= ${i} Head`);
+       for (let j = 0; j < 4; j++) {
+           console.log(`in line${j+1}`);
+       }
+    }
 }
 tipsArray();
