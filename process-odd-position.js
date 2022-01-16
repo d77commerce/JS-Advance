@@ -7,4 +7,4 @@ function oddPosition(arr = []) {
   }
   console.log(newArr.join(" "));
 }
-oddPosition([1, 2, 1, 45, 65, 43]);
+oddPosition([1, 7, 1, 45, 65, 43]);
