@@ -5,11 +5,11 @@ function townPopulation(input) {
     let allTowns = townArr.split(" <-> ");
     let town = allTowns[0];
     let population = allTowns[1];
-
-    if (outputTowns[town] != undefined) {
-      outputTowns[town] += population;
+    population = Number(population);
+    if (outputTowns[town] == undefined) {
+      outputTowns[town] = 0;
     }
-    outputTowns[town] = population;
+    outputTowns[town] += population;
   }
   for (const key in outputTowns) {
     console.log(`${key} : ${outputTowns[key]}`);
