@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Move list</h1>
+    <ul id="move">
+      <li>The Matrix</li>
+    </ul>
+    <script>
+      let moveLiElement = document.createElement("li");
+      let ulElement = document.getElementById("move");
+
+      moveLiElement.textContent = "New Move";
+
+      let copyLiElement = moveLiElement.cloneNode(true);
+      console.log(moveLiElement.textContent);
+      ulElement.appendChild(moveLiElement);
+      ulElement.prepend(copyLiElement);
+      copyLiElement.textContent += " II";
+    </script>
+  </body>
+</html>
