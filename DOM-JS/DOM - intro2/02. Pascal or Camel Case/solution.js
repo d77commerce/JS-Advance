@@ -13,7 +13,17 @@ function solve() {
       }
     }
   } else if (type === "Pascal Case") {
+    result += textInput[0].toUpperCase();
+    for (let x = 1; x < textInput.length; x++) {
+      if (textInput[x] === " ") {
+        result += textInput[x + 1].toUpperCase();
+        x++;
+      } else {
+        result += textInput[x].toLowerCase();
+      }
+    }
   } else {
+    result = "Error!";
   }
-  console.log(result);
+  document.getElementById("result").textContent = result;
 }
