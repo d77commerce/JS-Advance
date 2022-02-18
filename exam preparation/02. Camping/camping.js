@@ -5,7 +5,25 @@ class SummerCamp {
     this.priceForTheCamp = { child: 150, student: 300, collegian: 500 };
     this.listOfParticipants = [0];
   }
-  registerParticipant(name, condition, money) {}
+  registerParticipant(name, condition, money) {
+    if (!this.priceForTheCamp[condition]) {
+      throw new Error("Unsuccessful registration at the camp.");
+    }
+    if (this.listOfParticipants.some((x) => x.name == name)) {
+      throw new Error(`The ${name} is already registered at the camp.`);
+    }
+    if (money < this.priceForTheCamp[condition]) {
+      throw new Error(`The money is not enough to pay the stay at the camp.`);
+    }
+    let participant = {
+      name,
+      condition,
+      power: 100,
+      wins: 0,
+    };
+    this.listOfParticipants.push(participant);
+    return `The ${name} was successfully registered.`;
+  }
 }
 
 const summerCamp = new SummerCamp(
