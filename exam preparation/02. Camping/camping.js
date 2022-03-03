@@ -24,6 +24,14 @@ class SummerCamp {
     this.listOfParticipants.push(participant);
     return `The ${name} was successfully registered.`;
   }
+  unregisterParticipant (name){
+    if (this.listOfParticipants.some((x) => x.name == name)) {
+      throw new Error(`The ${name} is already registered at the camp.`);
+    }
+    this.listOfParticipants = this.listOfParticipants.filter(x => x.name != name);
+
+    return `The ${name} removed successfully.`; 
+  }
 }
 
 const summerCamp = new SummerCamp(

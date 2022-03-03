@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>test fetch</h1>
+    <div id="one"></div>
+    <button id="btn">test</button>
+    <script>
+      let button = document.querySelector("#btn");
+      let result = document.querySelector("#one");
+      let url = "https://api.github.com/users/testnakov/repos";
+
+      button.addEventListener("click", () => {
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {
+            one.textContent = data.map((x) => x.full_name).join(" , ");
+            console.log("test");
+            console.log(data);
+          })
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>
