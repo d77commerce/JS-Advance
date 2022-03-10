@@ -18,9 +18,3 @@ navigator.geolocation.getCurrentPosition(
 function test() {
   geolocationTextDisplay.innerText = `Your coordinats is ${getLatitude} , ${getLongitude}`;
 }
-
-document.getElementById("demo").addEventListener("click", myFunction);
-
-function myFunction() {
-  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-}
