@@ -1,11 +1,14 @@
-let btn = document.getElementById("btnGeo");
-const mapBtn = document.createElement("button");
-mapBtn.innerText = "SHOW in GOOGLE MAP";
-mapBtn.addEventListener("click", showInGoogleMap);
 let geolocationTextDisplay = document.getElementById("one");
-btn.addEventListener("click", test);
+let btn = document.getElementById("btnGeo");
+
 let getLatitude = 0;
 let getLongitude = 0;
+
+const mapBtn = document.createElement("button");
+mapBtn.innerText = "SHOW in GOOGLE MAP";
+
+const mapShow = document.createElement("button");
+mapShow.innerText = "SHOW in page";
 
 // console.log("test");
 if (navigator.geolocation) {
@@ -20,13 +23,30 @@ if (navigator.geolocation) {
     }
   );
 }
+btn.addEventListener("click", test);
+mapBtn.addEventListener("click", showInGoogleMap);
+mapShow.addEventListener("click", showInPage);
 
 function test() {
   geolocationTextDisplay.innerText = `Your coordinats is ${getLatitude} , ${getLongitude}`;
   const mapShowBtn = document.getElementById("geo").appendChild(mapBtn);
+  const mapShowBtnInPage = document.getElementById("geo").appendChild(mapShow);
 }
 function showInGoogleMap() {
   window.open(
     `https://www.google.com/maps/@${getLatitude},${getLongitude},14z`
   );
+}
+function showInPage() {
+  const coords = [getLatitude, getLongitude];
+  const map = L.map("map").setView(coords, 13);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+  L.marker(coords)
+    .addTo(map)
+    .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
+    .openPopup();
 }
