@@ -1,4 +1,24 @@
 import { html, render } from '../node_modules/lit-html/lit-html.js';
+
+let btn = document
+.querySelector('#btnLoadTowns')
+.addEventListener('click', townsLoad);
+
+const templateList = (input)=>html`
+<ul>
+  ${input.map(town=>html`<li>${town}</li>`)}
+</ul>
+`
+
+function townsLoad(ev) {
+  ev.preventDefault();
+  const townsIput = document.querySelector('#towns').value.split(', ');
+  const root = document.querySelector('#root');
+
+  const 
+
+}
+/*
 let btn = document
   .querySelector('#btnLoadTowns')
   .addEventListener('click', townsLoad);
@@ -16,3 +36,4 @@ function townsLoad(ev) {
 
   console.log(townsIput);
 }
+*/
