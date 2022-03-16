@@ -12,6 +12,6 @@ function solve() {
       x.textContent.toLowerCase().includes(btnSerch)
         ? (x.className = "select")
         : (x.className = "")
-    );
+    )
   }
 }
