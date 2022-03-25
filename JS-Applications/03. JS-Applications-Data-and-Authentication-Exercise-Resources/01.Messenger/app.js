@@ -2,7 +2,7 @@ function attachEvents() {
   const btnSubmit = document.querySelector("#submit");
   const btnRefresh = document.querySelector("#refresh");
 
-  const url = `http://localhost:3030/jsonstore/messenger`;
+  const url = "http://localhost:3030/jsonstore/messenger";
   const messages = document.querySelector("#messages");
 
   btnSubmit.addEventListener("click", post);

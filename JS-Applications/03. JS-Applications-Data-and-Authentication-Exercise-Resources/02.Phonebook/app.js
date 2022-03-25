@@ -18,14 +18,24 @@ function attachEvents() {
     const data = await res.json();
     Object.values(data).forEach(x => {
       const { person, phone, _id } = x;
-      let html = `<li id="${_id}">${person}: ${phone} <button class="del">DELETE</button></li>`;
-      phonebook.insertAdjacentHTML('beforeend', html);
+      // phonebook.insertAdjacentHTML(
+      //   'beforeend',
+      //   `<li id="${_id}">
+      //     ${person}:${phone}
+      //     <button id="btnDelete">DELETE</button>
+      //   </li>`
+      // );
+      //const btnDel = document.querySelector('#btnDelete');
 
-      // let li = document.createElement('li');
-      // phonebook.appendChild;
-      // li.setAttribute('id', _id);
-      const btnDel = document.querySelector('.del');
-      btnDel.addEventListener('click', console.log('del'));
+      let li = document.createElement('li');
+      li.setAttribute('id', _id);
+      li.innerHTML = `${person}: ${phone}`;
+      phonebook.appendChild(li);
+
+      const btnDel = document.createElement('button');
+      btnDel.textContent = 'DELETE';
+      btnDel.addEventListener('click', deletePhone);
+      li.appendChild(btnDel);
     });
     console.log(data);
   }
@@ -42,6 +52,15 @@ function attachEvents() {
       person.value = '';
       phone.value = '';
     }
+  }
+  async function deletePhone(event) {
+    event.preventDefault();
+    console.log(event.target.parentNode.id);
+    await fetch(`${url}/${event.target.parentNode.id}`, {
+      method: 'delete',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    load();
   }
 }
 
